@@ -58,6 +58,7 @@
 
       async function scanCode() {
           const result = await liff.scanCode();
+          alert(result.value);
           document.getElementById("scanCode").append(result.value);
 
     }
@@ -65,7 +66,7 @@
       function openWindow() {
           liff.openWindow({
               url: "https://line.me",
-              external:false
+              external:true
           });
     }
 
