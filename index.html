@@ -32,7 +32,7 @@
   <button id="btnMsg" onclick="sendMsg()">Send Message</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">Open Window</button>
-  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
+  <button id="btnScanCode" onclick="window.location = 'https://line.me/R/nv/QRCodeReader'">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
   <button id="btnClose" onclick="closed()">Close</button>
 
@@ -62,12 +62,8 @@
           //const result = await liff.scanCode();
           //alert(result.value);
           //document.getElementById("scanCode").append(result.value);
-          window.location = "https://line.me/R/nv/QRCodeReader";
-          const queryString = decodeURIComponent(window.location.search);
-          const params = new URLSearchParams(queryString);
-          if (params.get("param") !== null) {
-            document.getElementById("scanCode").append(params.get("param"));
-          }
+          
+         
     }
 
       function openWindow() {
@@ -139,6 +135,11 @@
         /* alert("LINE Developers x Skooldio")*/
        /* Setup liff*/
         await liff.init({ liffId: "1657110559-GMkLrdY0" })
+        const queryString = decodeURIComponent(window.location.search);
+        const params = new URLSearchParams(queryString);
+        if (params.get("param") !== null) {
+            document.getElementById("scanCode").append(params.get("param"));
+        }
        getEnvironment()
        getUserProfile()
        getContext()
