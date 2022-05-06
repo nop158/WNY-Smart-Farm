@@ -53,7 +53,8 @@
     function logOut() {
     }
 
-    function closed() {
+      function closed() {
+          liff.closeWindow();
     }
 
       async function scanCode() {
@@ -135,6 +136,9 @@
         /* alert("LINE Developers x Skooldio")*/
        /* Setup liff*/
         await liff.init({ liffId: "1657110559-GMkLrdY0" })
+
+        /*ตัวอย่าง qr code LIFF URL ตามด้วย param*/
+       /* https://liff.line.me/1657110559-GMkLrdY0?param=test1234*/
         const queryString = decodeURIComponent(window.location.search);
         const params = new URLSearchParams(queryString);
         if (params.get("param") !== null) {
