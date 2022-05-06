@@ -57,11 +57,17 @@
     }
 
       async function scanCode() {
-          alert(555);
-          const result = await liff.scanCode();
-          alert(result.value);
-          document.getElementById("scanCode").append(result.value);
-
+          /*ใช้ได้เฉพาะ แอนดรอยด์*/
+          //alert(555);
+          //const result = await liff.scanCode();
+          //alert(result.value);
+          //document.getElementById("scanCode").append(result.value);
+          window.location = "https://line.me/R/nv/QRCodeReader";
+          const queryString = decodeURIComponent(window.location.search);
+          const params = new URLSearchParams(queryString);
+          if (params.get("param") !== null) {
+            document.getElementById("scanCode").append(params.get("param"));
+          }
     }
 
       function openWindow() {
