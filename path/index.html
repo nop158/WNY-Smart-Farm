@@ -34,6 +34,7 @@
         }
 
         async function main() {
+
             liff.init({ liffId: "1657110559-GMkLrdY0" })
             /*CallBack URL in Line Login if multiple use enter*/
             if (liff.isLoggedIn()) {
@@ -42,6 +43,7 @@
 
             }
             else {
+                alert(888);
                 liff.login({ redirectUri:"https://nop158.github.io/WNY-Smart-Farm/path"});
 
             }
