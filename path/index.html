@@ -15,15 +15,12 @@
     <p id="statusMessage"><b>statusMessage:</b> </p>
     <p id="decodedIDToken"><b>email:</b> </p>
 
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
         // Query Params
         const queryString = decodeURIComponent(window.location.search);
         const params = new URLSearchParams(queryString);
         document.getElementById("param").append(params.get("param"));
-    </script>
-
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <script>
         async function getUserProfile() {
             const profile = await liff.getProfile();
             document.getElementById("pictureUrl").src = profile.pictureUrl;
@@ -44,13 +41,45 @@
             }
             else {
                 alert(888);
-                liff.login({ redirectUri:"https://nop158.github.io/WNY-Smart-Farm/path"});
+                liff.login({ redirectUri: "https://nop158.github.io/WNY-Smart-Farm/path" });
 
             }
-            
+
         }
         alert(555);
         main()
     </script>
+
+
+
+    <!--<script>
+        async function getUserProfile() {
+            const profile = await liff.getProfile();
+            document.getElementById("pictureUrl").src = profile.pictureUrl;
+            document.getElementById("userId").append(profile.userId);
+            document.getElementById("statusMessage").append(profile.statusMessage);
+            document.getElementById("displayName").append(profile.displayName);
+            document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email);
+        }
+
+        async function main() {
+            alert(666);
+            liff.init({ liffId: "1657110559-GMkLrdY0" });
+            /*CallBack URL in Line Login if multiple use enter*/
+            if (liff.isLoggedIn()) {
+                alert(999);
+                getUserProfile()
+
+            }
+            else {
+                alert(888);
+                liff.login({ redirectUri: "https://nop158.github.io/WNY-Smart-Farm/path" });
+
+            }
+
+        }
+        alert(555);
+        main()
+    </script>-->
 </body>
 </html>
