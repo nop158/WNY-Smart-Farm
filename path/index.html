@@ -21,6 +21,7 @@
         const params = new URLSearchParams(queryString);
         document.getElementById("param").append(params.get("param"));
     </script>
+
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
         async function getUserProfile() {
@@ -36,7 +37,7 @@
             liff.init({ liffId: "1657110559-GMkLrdY0" })
             /*CallBack URL in Line Login if multiple use enter*/
             if (liff.isLoggedIn()) {
-
+                alert(999);
                 getUserProfile()
 
             }
