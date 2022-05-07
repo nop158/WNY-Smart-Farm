@@ -136,18 +136,24 @@
         /* alert("LINE Developers x Skooldio")*/
        /* Setup liff*/
         await liff.init({ liffId: "1657110559-GMkLrdY0" })
-
-        /*ตัวอย่าง qr code LIFF URL ตามด้วย param*/
-       /* https://liff.line.me/1657110559-GMkLrdY0?param=test1234*/
-        const queryString = decodeURIComponent(window.location.search);
-        const params = new URLSearchParams(queryString);
-        if (params.get("param") !== null) {
-            document.getElementById("scanCode").append(params.get("param"));
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn());
+        if (liff.isLoggedIn()) {
+            /*ตัวอย่าง qr code LIFF URL ตามด้วย param*/
+            /* https://liff.line.me/1657110559-GMkLrdY0?param=test1234*/
+            const queryString = decodeURIComponent(window.location.search);
+            const params = new URLSearchParams(queryString);
+            if (params.get("param") !== null) {
+                document.getElementById("scanCode").append(params.get("param"));
+            }
+            getEnvironment()
+            getUserProfile()
+            getContext()
+            getFriendship()
         }
-       getEnvironment()
-       getUserProfile()
-       getContext()
-      getFriendship()
+        else {
+            liff.login();
+        }
+      
       // createUniversalLink()
     }
     main()
